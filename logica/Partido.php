@@ -35,7 +35,7 @@ class Partido {
         $conexion->abrir();
         
         $sql = "SELECT id_local, id_visitante, fecha_partido, hora_partido 
-                FROM g8_partido 
+                FROM g5_partido 
                 WHERE id_fecha = " . (int)$id_fecha . 
                 " ORDER BY hora_partido ASC";
                 

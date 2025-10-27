@@ -24,7 +24,7 @@ class CampeonatoDAO {
         $fecha_inicio = (!empty($this->fecha_inicio)) ? "'" . $this->fecha_inicio . "'" : "NULL";
         $fecha_fin = (!empty($this->fecha_fin)) ? "'" . $this->fecha_fin . "'" : "NULL";
         
-        $sql= "INSERT INTO g8_campeonato (nombre, anio, imagen_url, fecha_inicio, fecha_fin, id_admin)
+        $sql= "INSERT INTO g5_campeonato (nombre, anio, imagen_url, fecha_inicio, fecha_fin, id_admin)
             VALUES ('" . $this->nombre . "', " . $this->anio . ", " . $imagen_url . ", " .
             $fecha_inicio . ", " . $fecha_fin . ", " . $this->id_admin . ")";
 
@@ -33,14 +33,14 @@ class CampeonatoDAO {
     public function consultarTodos($id_admin){
         
         $sql= "SELECT id_campeonato, nombre, anio, imagen_url, fecha_inicio, fecha_fin, id_admin 
-                FROM g8_campeonato 
+                FROM g5_campeonato 
                 WHERE id_admin = '" . $id_admin . "'";
         return $sql;       
     }
 
     public function consultarPorId(){
         return "SELECT id_campeonato, nombre, anio, imagen_url, fecha_inicio, fecha_fin, id_admin 
-                FROM g8_campeonato 
+                FROM g5_campeonato 
                 WHERE id_campeonato = '" . $this->id_campeonato . "'";
     }
 }

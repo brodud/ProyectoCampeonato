@@ -123,7 +123,7 @@ class Fecha {
         $conexion->abrir();
 
         $sql = "SELECT id_fecha, numero_fecha, fecha_real 
-                FROM g8_fecha 
+                FROM g5_fecha 
                 WHERE id_campeonato = " . (int)$id_campeonato . "
                 ORDER BY numero_fecha ASC";
 

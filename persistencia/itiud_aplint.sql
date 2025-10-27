@@ -2107,10 +2107,10 @@ CREATE TABLE `g3partido` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_administrador`
+-- Estructura de tabla para la tabla `g5_administrador`
 --
 
-CREATE TABLE `g8_administrador` (
+CREATE TABLE `g5_administrador` (
   `id_admin` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
@@ -2121,10 +2121,10 @@ CREATE TABLE `g8_administrador` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_campeonato`
+-- Estructura de tabla para la tabla `g5_campeonato`
 --
 
-CREATE TABLE `g8_campeonato` (
+CREATE TABLE `g5_campeonato` (
   `id_campeonato` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `año` year NOT NULL,
@@ -2138,10 +2138,10 @@ CREATE TABLE `g8_campeonato` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_confederacion`
+-- Estructura de tabla para la tabla `g5_confederacion`
 --
 
-CREATE TABLE `g8_confederacion` (
+CREATE TABLE `g5_confederacion` (
   `id_confederacion` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `sigla` varchar(10) DEFAULT NULL,
@@ -2151,10 +2151,10 @@ CREATE TABLE `g8_confederacion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_estadio`
+-- Estructura de tabla para la tabla `g5_estadio`
 --
 
-CREATE TABLE `g8_estadio` (
+CREATE TABLE `g5_estadio` (
   `id_estadio` int NOT NULL,
   `nombre` varchar(150) NOT NULL,
   `ciudad` varchar(100) DEFAULT NULL,
@@ -2164,10 +2164,10 @@ CREATE TABLE `g8_estadio` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_fecha`
+-- Estructura de tabla para la tabla `g5_fecha`
 --
 
-CREATE TABLE `g8_fecha` (
+CREATE TABLE `g5_fecha` (
   `id_fecha` int NOT NULL,
   `numero_fecha` int NOT NULL,
   `fecha_real` date DEFAULT NULL,
@@ -2177,10 +2177,10 @@ CREATE TABLE `g8_fecha` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_pais`
+-- Estructura de tabla para la tabla `g5_pais`
 --
 
-CREATE TABLE `g8_pais` (
+CREATE TABLE `g5_pais` (
   `id_pais` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `sigla_fifa` varchar(3) NOT NULL,
@@ -2191,10 +2191,10 @@ CREATE TABLE `g8_pais` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_participante`
+-- Estructura de tabla para la tabla `g5_participante`
 --
 
-CREATE TABLE `g8_participante` (
+CREATE TABLE `g5_participante` (
   `id_campeonato` int NOT NULL,
   `id_pais` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -2202,10 +2202,10 @@ CREATE TABLE `g8_participante` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_partido`
+-- Estructura de tabla para la tabla `g5_partido`
 --
 
-CREATE TABLE `g8_partido` (
+CREATE TABLE `g5_partido` (
   `id_partido` int NOT NULL,
   `id_fecha` int NOT NULL,
   `id_local` int NOT NULL,
@@ -2222,10 +2222,10 @@ CREATE TABLE `g8_partido` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `g8_tabla_posiciones`
+-- Estructura de tabla para la tabla `g5_tabla_posiciones`
 --
 
-CREATE TABLE `g8_tabla_posiciones` (
+CREATE TABLE `g5_tabla_posiciones` (
   `id_posicion` int NOT NULL,
   `id_campeonato` int NOT NULL,
   `id_pais` int NOT NULL,
@@ -2512,59 +2512,59 @@ ALTER TABLE `g3partido`
   ADD KEY `fk_G3Partido_G3Campeonato1_idx` (`G3Campeonato_idCampeonato`);
 
 --
--- Indices de la tabla `g8_administrador`
+-- Indices de la tabla `g5_administrador`
 --
-ALTER TABLE `g8_administrador`
+ALTER TABLE `g5_administrador`
   ADD PRIMARY KEY (`id_admin`),
   ADD UNIQUE KEY `correo` (`correo`);
 
 --
--- Indices de la tabla `g8_campeonato`
+-- Indices de la tabla `g5_campeonato`
 --
-ALTER TABLE `g8_campeonato`
+ALTER TABLE `g5_campeonato`
   ADD PRIMARY KEY (`id_campeonato`),
   ADD KEY `id_admin` (`id_admin`);
 
 --
--- Indices de la tabla `g8_confederacion`
+-- Indices de la tabla `g5_confederacion`
 --
-ALTER TABLE `g8_confederacion`
+ALTER TABLE `g5_confederacion`
   ADD PRIMARY KEY (`id_confederacion`),
   ADD UNIQUE KEY `sigla` (`sigla`);
 
 --
--- Indices de la tabla `g8_estadio`
+-- Indices de la tabla `g5_estadio`
 --
-ALTER TABLE `g8_estadio`
+ALTER TABLE `g5_estadio`
   ADD PRIMARY KEY (`id_estadio`),
   ADD KEY `id_pais` (`id_pais`);
 
 --
--- Indices de la tabla `g8_fecha`
+-- Indices de la tabla `g5_fecha`
 --
-ALTER TABLE `g8_fecha`
+ALTER TABLE `g5_fecha`
   ADD PRIMARY KEY (`id_fecha`),
   ADD UNIQUE KEY `uk_campeonato_fecha` (`id_campeonato`,`numero_fecha`);
 
 --
--- Indices de la tabla `g8_pais`
+-- Indices de la tabla `g5_pais`
 --
-ALTER TABLE `g8_pais`
+ALTER TABLE `g5_pais`
   ADD PRIMARY KEY (`id_pais`),
   ADD UNIQUE KEY `sigla_fifa` (`sigla_fifa`),
   ADD KEY `id_confederacion` (`id_confederacion`);
 
 --
--- Indices de la tabla `g8_participante`
+-- Indices de la tabla `g5_participante`
 --
-ALTER TABLE `g8_participante`
+ALTER TABLE `g5_participante`
   ADD PRIMARY KEY (`id_campeonato`,`id_pais`),
   ADD KEY `id_pais` (`id_pais`);
 
 --
--- Indices de la tabla `g8_partido`
+-- Indices de la tabla `g5_partido`
 --
-ALTER TABLE `g8_partido`
+ALTER TABLE `g5_partido`
   ADD PRIMARY KEY (`id_partido`),
   ADD KEY `id_fecha` (`id_fecha`),
   ADD KEY `id_local` (`id_local`),
@@ -2572,9 +2572,9 @@ ALTER TABLE `g8_partido`
   ADD KEY `id_estadio` (`id_estadio`);
 
 --
--- Indices de la tabla `g8_tabla_posiciones`
+-- Indices de la tabla `g5_tabla_posiciones`
 --
-ALTER TABLE `g8_tabla_posiciones`
+ALTER TABLE `g5_tabla_posiciones`
   ADD PRIMARY KEY (`id_posicion`),
   ADD UNIQUE KEY `uk_posicion_campeonato_pais` (`id_campeonato`,`id_pais`),
   ADD KEY `id_pais` (`id_pais`);
@@ -2744,51 +2744,51 @@ ALTER TABLE `g3partido`
   MODIFY `idPartido` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_administrador`
+-- AUTO_INCREMENT de la tabla `g5_administrador`
 --
-ALTER TABLE `g8_administrador`
+ALTER TABLE `g5_administrador`
   MODIFY `id_admin` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_campeonato`
+-- AUTO_INCREMENT de la tabla `g5_campeonato`
 --
-ALTER TABLE `g8_campeonato`
+ALTER TABLE `g5_campeonato`
   MODIFY `id_campeonato` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_confederacion`
+-- AUTO_INCREMENT de la tabla `g5_confederacion`
 --
-ALTER TABLE `g8_confederacion`
+ALTER TABLE `g5_confederacion`
   MODIFY `id_confederacion` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_estadio`
+-- AUTO_INCREMENT de la tabla `g5_estadio`
 --
-ALTER TABLE `g8_estadio`
+ALTER TABLE `g5_estadio`
   MODIFY `id_estadio` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_fecha`
+-- AUTO_INCREMENT de la tabla `g5_fecha`
 --
-ALTER TABLE `g8_fecha`
+ALTER TABLE `g5_fecha`
   MODIFY `id_fecha` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_pais`
+-- AUTO_INCREMENT de la tabla `g5_pais`
 --
-ALTER TABLE `g8_pais`
+ALTER TABLE `g5_pais`
   MODIFY `id_pais` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_partido`
+-- AUTO_INCREMENT de la tabla `g5_partido`
 --
-ALTER TABLE `g8_partido`
+ALTER TABLE `g5_partido`
   MODIFY `id_partido` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `g8_tabla_posiciones`
+-- AUTO_INCREMENT de la tabla `g5_tabla_posiciones`
 --
-ALTER TABLE `g8_tabla_posiciones`
+ALTER TABLE `g5_tabla_posiciones`
   MODIFY `id_posicion` int NOT NULL AUTO_INCREMENT;
 
 --
@@ -2944,51 +2944,51 @@ ALTER TABLE `g3partido`
   ADD CONSTRAINT `fk_G3Partido_G3FechaPartidos1` FOREIGN KEY (`G3FechaPartidos_idFechaPartidos`) REFERENCES `g3fechapartidos` (`idFechaPartidos`);
 
 --
--- Filtros para la tabla `g8_campeonato`
+-- Filtros para la tabla `g5_campeonato`
 --
-ALTER TABLE `g8_campeonato`
-  ADD CONSTRAINT `g8_campeonato_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `g8_administrador` (`id_admin`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `g5_campeonato`
+  ADD CONSTRAINT `g5_campeonato_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `g5_administrador` (`id_admin`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_estadio`
+-- Filtros para la tabla `g5_estadio`
 --
-ALTER TABLE `g8_estadio`
-  ADD CONSTRAINT `g8_estadio_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `g8_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `g5_estadio`
+  ADD CONSTRAINT `g5_estadio_ibfk_1` FOREIGN KEY (`id_pais`) REFERENCES `g5_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_fecha`
+-- Filtros para la tabla `g5_fecha`
 --
-ALTER TABLE `g8_fecha`
-  ADD CONSTRAINT `g8_fecha_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g8_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `g5_fecha`
+  ADD CONSTRAINT `g5_fecha_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g5_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_pais`
+-- Filtros para la tabla `g5_pais`
 --
-ALTER TABLE `g8_pais`
-  ADD CONSTRAINT `g8_pais_ibfk_1` FOREIGN KEY (`id_confederacion`) REFERENCES `g8_confederacion` (`id_confederacion`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `g5_pais`
+  ADD CONSTRAINT `g5_pais_ibfk_1` FOREIGN KEY (`id_confederacion`) REFERENCES `g5_confederacion` (`id_confederacion`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_participante`
+-- Filtros para la tabla `g5_participante`
 --
-ALTER TABLE `g8_participante`
-  ADD CONSTRAINT `g8_participante_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g8_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `g8_participante_ibfk_2` FOREIGN KEY (`id_pais`) REFERENCES `g8_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `g5_participante`
+  ADD CONSTRAINT `g5_participante_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g5_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `g5_participante_ibfk_2` FOREIGN KEY (`id_pais`) REFERENCES `g5_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_partido`
+-- Filtros para la tabla `g5_partido`
 --
-ALTER TABLE `g8_partido`
-  ADD CONSTRAINT `g8_partido_ibfk_1` FOREIGN KEY (`id_fecha`) REFERENCES `g8_fecha` (`id_fecha`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `g8_partido_ibfk_2` FOREIGN KEY (`id_local`) REFERENCES `g8_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `g8_partido_ibfk_3` FOREIGN KEY (`id_visitante`) REFERENCES `g8_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `g8_partido_ibfk_4` FOREIGN KEY (`id_estadio`) REFERENCES `g8_estadio` (`id_estadio`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `g5_partido`
+  ADD CONSTRAINT `g5_partido_ibfk_1` FOREIGN KEY (`id_fecha`) REFERENCES `g5_fecha` (`id_fecha`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `g5_partido_ibfk_2` FOREIGN KEY (`id_local`) REFERENCES `g5_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `g5_partido_ibfk_3` FOREIGN KEY (`id_visitante`) REFERENCES `g5_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `g5_partido_ibfk_4` FOREIGN KEY (`id_estadio`) REFERENCES `g5_estadio` (`id_estadio`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `g8_tabla_posiciones`
+-- Filtros para la tabla `g5_tabla_posiciones`
 --
-ALTER TABLE `g8_tabla_posiciones`
-  ADD CONSTRAINT `g8_tabla_posiciones_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g8_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `g8_tabla_posiciones_ibfk_2` FOREIGN KEY (`id_pais`) REFERENCES `g8_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `g5_tabla_posiciones`
+  ADD CONSTRAINT `g5_tabla_posiciones_ibfk_1` FOREIGN KEY (`id_campeonato`) REFERENCES `g5_campeonato` (`id_campeonato`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `g5_tabla_posiciones_ibfk_2` FOREIGN KEY (`id_pais`) REFERENCES `g5_pais` (`id_pais`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Pedido`

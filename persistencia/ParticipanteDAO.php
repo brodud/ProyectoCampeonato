@@ -10,18 +10,18 @@ class ParticipanteDAO {
     }
 
     public function insertar() {
-        return "INSERT INTO g8_participante (id_campeonato, id_pais) 
+        return "INSERT INTO g5_participante (id_campeonato, id_pais) 
                 VALUES ('" . $this->id_campeonato . "', '" . $this->id_pais . "')";
     }
 
     public function eliminar() {
-        return "DELETE FROM g8_participante 
+        return "DELETE FROM g5_participante 
                 WHERE id_campeonato = '" . $this->id_campeonato . "' 
                 AND id_pais = '" . $this->id_pais . "'";
     }
 
     public function verificarExistencia() {
-        return "SELECT * FROM g8_participante 
+        return "SELECT * FROM g5_participante 
                 WHERE id_campeonato = '" . $this->id_campeonato . "' 
                 AND id_pais = '" . $this->id_pais . "'";
     }
@@ -29,15 +29,15 @@ class ParticipanteDAO {
     public function consultarPorCampeonato() {
         return "SELECT p.id_pais, p.nombre, p.sigla_fifa, p.bandera_url, 
                        c.nombre as confederacion, c.sigla as sigla_conf
-                FROM g8_participante part
-                INNER JOIN g8_pais p ON part.id_pais = p.id_pais
-                INNER JOIN g8_confederacion c ON p.id_confederacion = c.id_confederacion
+                FROM g5_participante part
+                INNER JOIN g5_pais p ON part.id_pais = p.id_pais
+                INNER JOIN g5_confederacion c ON p.id_confederacion = c.id_confederacion
                 WHERE part.id_campeonato = '" . $this->id_campeonato . "'
                 ORDER BY p.nombre";
     }
 
     public function contarParticipantes() {
-        return "SELECT COUNT(*) as total FROM g8_participante 
+        return "SELECT COUNT(*) as total FROM g5_participante 
                 WHERE id_campeonato = '" . $this->id_campeonato . "'";
     }
 }

@@ -13,6 +13,6 @@ class ConfederacionDAO {
     }
 
     public function consultarTodos(){
-        return "SELECT * FROM g8_confederacion";
+        return "SELECT * FROM g5_confederacion";
     }
 }   

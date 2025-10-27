@@ -16,13 +16,13 @@ class AdminDAO {
     
     public function autenticar(){
         return "select id_admin
-                from g8_administrador
+                from g5_administrador
             where correo = '" . $this -> correo . "' and contraseña = md5('" . $this -> contraseña . "')";
     }
     
     public function consultarPorId(){
         return "select nombre, apellido, correo
-                from g8_administrador 
+                from g5_administrador 
                 where id_admin = '" . $this -> id . "'";
     }
 }

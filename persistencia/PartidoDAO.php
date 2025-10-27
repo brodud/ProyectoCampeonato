@@ -17,14 +17,14 @@ class PartidoDAO {
     }
 
     public function insertar() {
-        return "INSERT INTO g8_partido (id_fecha, id_local, id_visitante, id_estadio, fecha_partido, hora_partido, estado) 
+        return "INSERT INTO g5_partido (id_fecha, id_local, id_visitante, id_estadio, fecha_partido, hora_partido, estado) 
                 VALUES (" . $this->id_fecha . ", " . $this->id_local . ", " . $this->id_visitante . ", " . $this->id_estadio . ", 
                         '" . $this->fecha_partido . "', '" . $this->hora_partido . "', 'pendiente')";
     }
 
     public function consultarPartidosPorFecha($id_fecha) {
         return "SELECT id_local, id_visitante, fecha_partido, hora_partido 
-                FROM g8_partido 
+                FROM g5_partido 
                 WHERE id_fecha = " . (int)$id_fecha . 
                 " ORDER BY hora_partido ASC";
     }

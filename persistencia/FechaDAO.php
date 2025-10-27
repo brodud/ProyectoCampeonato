@@ -13,13 +13,13 @@ class FechaDAO {
     }
 
     public function insertar() {
-        return "INSERT INTO g8_fecha (numero_fecha, fecha_real, id_campeonato) 
+        return "INSERT INTO g5_fecha (numero_fecha, fecha_real, id_campeonato) 
             VALUES (" . $this->numero_fecha . ", '" . $this->fecha_real . "', " . $this->id_campeonato . ")";
     }
 
     // Método de limpieza
     public function eliminarPorCampeonato() {
-        return "DELETE FROM g8_fecha WHERE id_campeonato = " . $this->id_campeonato;
+        return "DELETE FROM g5_fecha WHERE id_campeonato = " . $this->id_campeonato;
     }
 }
 ?>

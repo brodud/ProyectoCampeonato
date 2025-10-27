@@ -11,7 +11,7 @@ if (isset($_POST["registrar"])) {
     $conexion->abrir();
 
     // Validar si el correo ya existe
-    $consulta = "SELECT correo FROM g8_administrador WHERE correo = '$correo'";
+    $consulta = "SELECT correo FROM g5_administrador WHERE correo = '$correo'";
     $conexion->ejecutar($consulta);
 
     if ($conexion->filas() > 0) {
@@ -20,7 +20,7 @@ if (isset($_POST["registrar"])) {
         // Insertar el nuevo administrador 
         $claveMD5 = md5($clave);
     
-    $insertar = "INSERT INTO g8_administrador (nombre, apellido, correo, contraseña)
+    $insertar = "INSERT INTO g5_administrador (nombre, apellido, correo, contraseña)
              VALUES ('$nombre', '$apellido', '$correo', '$claveMD5')";
         $conexion->ejecutar($insertar);
         $mensaje = "<div class='alert alert-success text-center'>Administrador registrado exitosamente</div>";
