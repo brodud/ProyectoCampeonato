@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo "🚀 VERSIÓN DESPLEGADA DESDE GITHUB - " . date('Y-m-d H:i:s');
 ?>
 <!DOCTYPE html>
 <html lang="es">
